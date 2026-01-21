@@ -1,0 +1,81 @@
+.trabalho-hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.trabalho-hero h1 {
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.trabalho-hero .subtitulo {
+  font-size: 1.1rem;
+  max-width: 60ch;
+  color: var(--color-text-muted-light);
+}
+
+body.theme-dark .trabalho-hero .subtitulo {
+  color: var(--color-text-muted-dark);
+}
+
+/* =====================
+   Conteúdo
+===================== */
+
+.conteudo-trabalho {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.bloco {
+  background-color: var(--color-surface-light);
+  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+body.theme-dark .bloco {
+  background-color: var(--color-surface-dark);
+}
+
+.bloco h2 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+.bloco p {
+  font-size: 1rem;
+  max-width: 65ch;
+}
+
+/* Destaque UX */
+.bloco.destaque {
+  border-left: 5px solid var(--color-accent);
+}
+
+/* Comparação UI vs UX */
+.bloco.comparacao ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.bloco.comparacao li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* =====================
+   Responsividade
+===================== */
+
+@media (max-width: 768px) {
+  .trabalho-hero h1 {
+    font-size: 2rem;
+  }
+}

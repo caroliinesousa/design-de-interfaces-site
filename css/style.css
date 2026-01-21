@@ -1,0 +1,297 @@
+:root {
+  --color-bg-light: #f5f7fa;
+  --color-bg-dark: #0f1722;
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #1e2935;
+  --color-text-main-light: #111111;
+  --color-text-main-dark: #f9fafb;
+  --color-text-muted-light: #4a4a4a;
+  --color-text-muted-dark: #cbd5f5;
+  --color-primary-light: #1d2b3a;
+  --color-primary-dark: #4f9dff;
+  --color-accent: #ff6b00;
+  --color-border-light: #d0d4dc;
+  --color-border-dark: #334155;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.12);
+  --transition-fast: 0.18s ease-out;
+  --font-title: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* =====================
+   Temas claro e escuro
+===================== */
+
+body.theme-light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-main-light);
+}
+
+body.theme-dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-main-dark);
+}
+
+/* =====================
+   Acessibilidade
+===================== */
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+/* Foco visível para navegação por teclado (WCAG) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* =====================
+   Header
+===================== */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-border-light);
+  background-color: var(--color-surface-light);
+}
+
+body.theme-dark .site-header {
+  border-bottom-color: var(--color-border-dark);
+  background-color: var(--color-surface-dark);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* =====================
+   Navegação
+===================== */
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+body.theme-dark .main-nav a:hover,
+body.theme-dark .main-nav a:focus-visible {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.main-nav a[aria-current="page"] {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* =====================
+   Conteúdo principal
+===================== */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+  gap: 3rem;
+  padding: 3.5rem 1.5rem;
+  max-width: 1200px; /* imagem respira mais */
+  margin: 0 auto;
+}
+
+
+.hero-text h1 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-text p {
+  max-width: 65ch; /* melhora legibilidade */
+  color: var(--color-text-muted-light);
+}
+
+body.theme-dark .hero-text p {
+  color: var(--color-text-muted-dark);
+}
+
+/* =====================
+   Imagens acessíveis
+===================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================
+   Secções
+===================== */
+
+.section {
+  padding: 2rem 1.5rem 3rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.section-header h2 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.section-header p {
+  color: var(--color-text-muted-light);
+}
+
+body.theme-dark .section-header p {
+  color: var(--color-text-muted-dark);
+}
+
+/* =====================
+   Cards
+===================== */
+
+.cards-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--color-surface-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast),
+              border-color var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+body.theme-dark .card {
+  background-color: var(--color-surface-dark);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.5);
+}
+
+.card h3 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted-light);
+}
+
+body.theme-dark .card p {
+  color: var(--color-text-muted-dark);
+}
+
+.card-link {
+  margin-top: 1rem;
+  align-self: flex-start;
+  text-decoration: underline; /* reforço WCAG */
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(255, 107, 0, 0.4);
+}
+
+/* =====================
+   Footer
+===================== */
+
+.site-footer {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--color-border-light);
+  background-color: var(--color-surface-light);
+}
+
+body.theme-dark .site-footer {
+  border-top-color: var(--color-border-dark);
+  background-color: var(--color-surface-dark);
+}
+
+/* =====================
+   Responsividade
+===================== */
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}

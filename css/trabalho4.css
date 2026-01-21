@@ -1,0 +1,144 @@
+.trabalho-hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.trabalho-hero h1 {
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.trabalho-hero .subtitulo {
+  font-size: 1.1rem;
+  max-width: 60ch;
+  color: var(--color-text-muted-light);
+}
+
+body.theme-dark .trabalho-hero .subtitulo {
+  color: var(--color-text-muted-dark);
+}
+
+/* =====================
+   Conteúdo
+===================== */
+
+.conteudo-trabalho {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.bloco {
+  background-color: var(--color-surface-light);
+  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.theme-dark .bloco {
+  background-color: var(--color-surface-dark);
+}
+
+.bloco:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+}
+
+.bloco h2 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+.bloco p {
+  font-size: 1rem;
+  max-width: 65ch;
+}
+
+/* Destaque emocional */
+.bloco.destaque {
+  border-left: 5px solid var(--color-accent);
+}
+
+/* Conclusão */
+.bloco.conclusao {
+  background: linear-gradient(
+    135deg,
+    var(--color-surface-light),
+    #fff3e8
+  );
+}
+
+body.theme-dark .bloco.conclusao {
+  background: linear-gradient(
+    135deg,
+    var(--color-surface-dark),
+    #2a1f17
+  );
+}
+
+/* =====================
+   Responsividade
+===================== */
+
+@media (max-width: 768px) {
+  .trabalho-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* =====================
+   Hero com imagem – Trabalho 4
+===================== */
+
+.hero-com-imagem {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-imagem {
+  background-color: var(--color-surface-light);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+body.theme-dark .hero-imagem {
+  background-color: var(--color-surface-dark);
+}
+
+.hero-imagem img {
+  width: 100%;
+  height: auto;          /* mantém proporção */
+  border-radius: 0.75rem;
+  object-fit: contain;   /* NÃO corta imagem explicativa */
+  background-color: #fff;
+}
+
+.hero-imagem figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted-light);
+}
+
+body.theme-dark .hero-imagem figcaption {
+  color: var(--color-text-muted-dark);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-com-imagem {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-imagem {
+    order: -1;
+  }
+}
